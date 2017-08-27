@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="In this post, I’ll synthesize the lessons passed by Kent C. Dodds in his series “How to Write an Open Source JavaScript Library”. Check his course on egghead.io.  After watching that (excellent) cour">
+<meta name="keywords" content="open-source,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Checklist for your new Open Source JavaScript Project">
+<meta property="og:url" content="http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/index.html">
+<meta property="og:site_name" content="Eric Douglas">
+<meta property="og:description" content="In this post, I’ll synthesize the lessons passed by Kent C. Dodds in his series “How to Write an Open Source JavaScript Library”. Check his course on egghead.io.  After watching that (excellent) cour">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/fIeyz2I.png">
+<meta property="og:updated_time" content="2017-08-27T10:55:50.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Checklist for your new Open Source JavaScript Project">
+<meta name="twitter:description" content="In this post, I’ll synthesize the lessons passed by Kent C. Dodds in his series “How to Write an Open Source JavaScript Library”. Check his course on egghead.io.  After watching that (excellent) cour">
+<meta name="twitter:image" content="http://i.imgur.com/fIeyz2I.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Checklist for your new Open Source JavaScript Project</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Eric Douglas" type="application/atom+xml" />
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/04/01/Git-Useful-Tips/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2015/09/17/node-projects/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&text=Checklist for your new Open Source JavaScript Project"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&is_video=false&description=Checklist for your new Open Source JavaScript Project"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Checklist for your new Open Source JavaScript Project&body=Check out this article: http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&name=Checklist for your new Open Source JavaScript Project&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checklist"><span class="toc-number">1.</span> <span class="toc-text">Checklist</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Checklist for your new Open Source JavaScript Project
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Eric Douglas</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2015-09-27T20:13:15.000Z" itemprop="datePublished">2015-09-27</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/open-source/">open-source</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="http://i.imgur.com/fIeyz2I.png" alt="Open-source JavaScript"></p>
+<p>In this post, I’ll synthesize the lessons passed by <a href="https://twitter.com/kentcdodds" target="_blank" rel="external">Kent C. Dodds</a> in his series “How to Write an Open Source JavaScript Library”. Check his course on <a href="https://egghead.io/series/how-to-write-an-open-source-javascript-library" target="_blank" rel="external">egghead.io</a>. </p>
+<p>After watching that (<strong>excellent</strong>) course, you can use this checklist to quickly refresh your mind and remember each step that you need to do in order to create your next open source project.</p>
+<h2 id="Checklist"><a href="#Checklist" class="headerlink" title="Checklist"></a>Checklist</h2><ul>
+<li><p><strong>Prefer to write a micro-library</strong>. Benefits:</p>
+<ul>
+<li>easier to reason about</li>
+<li>easier to test</li>
+<li>easier to reuse</li>
+</ul>
+</li>
+<li><p><strong>Create a repository for your library</strong>:</p>
+<ul>
+<li>Go to your git repository hosting service (here we’ll use <a href="https://github.com/" target="_blank" rel="external">GitHub</a>)</li>
+<li>Create a new repository</li>
+<li>Create a README file</li>
+<li>Clone your repository to your local machine<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:YOUR_USER_NAME/YOUR_REPOSITORY_NAME</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Ensure that you have <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a> installed</strong>.</p>
+</li>
+<li><p><strong>Set NPM properties</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm set init-author-name 'Your name'</div><div class="line">npm set init-author-email 'Your email'</div><div class="line">npm set init-author-url 'http://yourdomain.com'</div><div class="line">npm set init-license 'MIT'</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Save modules with an exact version</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm set save-exact true</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Login with your NPM account on terminal</strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">npm adduser</div><div class="line">Username: YOUR_USER_NAME</div><div class="line">Password: YOUR_PASSWORD</div><div class="line">Email: YOUR_EMAIL@domain.com</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><strong>Create a <code>package.json</code></strong>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Create the main file</strong>:</p>
+<ul>
+<li>Create the <code>src/index.js</code> file that will expose all the module’s functionalities.<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  funcOne: funcOne,</div><div class="line">  funcTwo: funcTwo</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>PROTIPs</strong>:</p>
+<ul>
+<li>Install and save dependencies: <code>npm i -S module-name</code> is equal to <code>npm install --save module-name</code></li>
+<li>Install and save development dependencies: <code>npm i -D module-name</code> is equal to <code>npm install --save-dev module-name</code></li>
+</ul>
+</li>
+<li><p><strong>Add a .gitignore file</strong></p>
+</li>
+<li><p><strong>Push your changes to GitHub</strong></p>
+</li>
+<li><p><strong>Publish to NPM</strong>: <code>npm publish</code></p>
+</li>
+<li><p><strong>Releasing a version to GitHub</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git tag 1.0.0</div><div class="line">git push --tags</div></pre></td></tr></table></figure>
+<ul>
+<li>Go to <em>releases</em> on GitHub</li>
+<li>Draft a new release</li>
+</ul>
+</li>
+<li><p><strong>Releasing a new version to NPM</strong>:</p>
+<ul>
+<li>Based on the type of change that you did in your code, you should bump the version of your module.</li>
+<li>Use <a href="http://semver.org/" target="_blank" rel="external">Semantic Versioning</a> to bump the version correctly</li>
+<li>Commit the code <code>git add</code> &amp; <code>git commit</code></li>
+<li>Add a new tag <code>git tag 1.1.0</code></li>
+<li>Push to GH (GitHub) <code>git push</code></li>
+<li>Push the tags <code>git push --tags</code></li>
+<li>Republish to NPM <code>npm publish</code></li>
+<li>See if all is okay <code>npm info &lt;your-module-name&gt;</code></li>
+</ul>
+</li>
+<li><p><strong>Publishing a beta version</strong>:</p>
+<ul>
+<li>Do some stuff in your code</li>
+<li>Bump the version with the sufix <code>-beta.0</code>. <strong>Ex</strong>: <code>1.3.1-beta.3</code></li>
+<li>Commit the code <code>git add</code> &amp; <code>git commit</code></li>
+<li>Add a new tag <code>git tag 1.1.0</code></li>
+<li>Push to GH (GitHub) <code>git push</code></li>
+<li>Push the tags <code>git push --tags</code></li>
+<li>Publish to NPM with <strong>–tag beta</strong> . <strong>Ex</strong>: <code>npm publish --tag beta</code></li>
+<li>See if all is okay. <code>npm info &lt;your-module-name&gt;</code></li>
+<li>How to install a beta version: <code>npm install &lt;module-name&gt;@beta</code> (latest beta) or <code>npm install &lt;module-name&gt;@1.3.1-beta.3</code> (specific version)</li>
+</ul>
+</li>
+<li><p><strong>Setting up Unit Testing with Mocha and Chai</strong>:</p>
+<ul>
+<li>Install mocha and chai <code>npm i -D mocha chai</code></li>
+<li>Create your test file <code>src/index.test.js</code> or <code>src/index.spec.js</code></li>
+<li>Update package.json <code>&quot;test&quot;: &quot;mocha src/index.test.js -w&quot;</code></li>
+<li>Run <code>npm test</code></li>
+</ul>
+</li>
+<li><p><strong>Automating Releases with semantic-release</strong>:</p>
+<ul>
+<li>Install semantic-release <code>npm i -g semantic-release-cli</code></li>
+<li>Setup semantic-release <code>semantic-release-cli setup</code></li>
+<li>Setup your CI configuration file to run the tests before run semantic-release.<ul>
+<li>Ex: <code>.travis.yml</code><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some stuff here</span></div><div class="line"></div><div class="line">before_script:</div><div class="line">  - npm prune</div><div class="line">script:</div><div class="line">  - npm <span class="keyword">run</span><span class="bash"> <span class="built_in">test</span></span></div><div class="line"><span class="bash">after_success:</span></div><div class="line"><span class="bash">  - npm run semantic-release</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Writing conventional commits with commitizen</strong>:</p>
+<ul>
+<li><a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit" target="_blank" rel="external">Angular git commit guidelines</a> </li>
+<li><code>npm i -D commitizen cz-conventional-changelog</code><ul>
+<li><strong>commitizen</strong>: allows to write commit messages</li>
+<li><strong>cz-conventional-changelog</strong>: Ask questions to generate the commit</li>
+</ul>
+</li>
+<li><p>Add commitizen in npm scripts: </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"script": &#123;</div><div class="line">  "commit": "git-cz"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Configure <strong>commitizen</strong> to use <strong>cz-conventional-changelog</strong>. In <code>package.json</code>, add the following property:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"czConfig": &#123;</div><div class="line">  "path": "node_modules/cz-conventional-changelog"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ps</strong>: I got a problem with the version 1.1.1 and 1.1.0 of the cz-conventional-changelog, <a href="https://github.com/commitizen/cz-conventional-changelog/issues/6" target="_blank" rel="external">and other people too</a>. To fix it, I installed the version <strong>1.0.1</strong>, and worked properly.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install cz-conventional-changelog@1.0.1 -D</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ps2</strong>: Commitizen (and cz-conventional-changelog) <a href="http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/#comment-2312712674">updated</a>! :)</p>
+</li>
+<li><p>Using commitizen:</p>
+<ul>
+<li>Add your changes <code>git add</code></li>
+<li><code>npm run commit</code><ul>
+<li>Choose the type of changes that you did. <strong>Ex</strong>: <em>chore</em></li>
+<li>Choose the scope of the change. <strong>Ex</strong>: <em>releasing</em></li>
+<li>Add a description. <strong>Ex</strong>: <em>Add travis config, conventional commit and semantic-release</em></li>
+<li>Add a longer description</li>
+<li>List break changes or issues closed by this change. <strong>Ex</strong>: <em>closes #1</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>See if everything is ok <code>git log</code></li>
+</ul>
+</li>
+<li><p><strong>Committing a new feature with commitizen</strong>:</p>
+<ul>
+<li>Create an issue on GitHub to be closed with that feature/commit</li>
+<li>Add a new feature and its test</li>
+<li><code>git add</code></li>
+<li><code>npm run commit</code></li>
+<li>Type of change: <em>feat</em> </li>
+<li>Scope: <em>random</em></li>
+<li>Short description: <em>Add ability to get an array of starwars names</em> </li>
+<li>Longer description: <em>If you pass a number to the random function, you will receive an array with that number of random items</em> </li>
+<li>List any break changes/issues closed: <em>closes #2</em> </li>
+<li>Verify if everything is ok <code>git log</code></li>
+</ul>
+</li>
+<li><p><strong>Automatically running tests before commits with ghooks</strong>:</p>
+<ul>
+<li>Install <strong>ghooks</strong> <code>npm i -D ghooks</code></li>
+<li><p>Configure ghooks in package.json:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"config": &#123;</div><div class="line">  "ghooks": &#123;</div><div class="line">    "pre-commit": "npm run test:single"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>ps</strong>: <em>ghooks</em> will prevent us to commit bad code</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Adding code coverage recording with Istanbul</strong>:</p>
+<ul>
+<li><code>npm i -D istanbul</code></li>
+<li><p>Set npm script to run Istanbul:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "test:single": "istanbul cover -x *.test.js _mocha -- -R spec src/index.test.js"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add the <code>coverage</code> folder in the <code>.gitignore</code> file</p>
+</li>
+<li>Run <code>npm run test:single</code></li>
+</ul>
+</li>
+<li><p><strong>Adding code coverage checking</strong>:</p>
+<ul>
+<li><p>Check coverage with <strong>ghook</strong>:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"config": &#123;</div><div class="line">  "ghooks": &#123;</div><div class="line">    "pre-commit": "npm run test:single &amp;&amp; npm run check-coverage"</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add check-coverage in npm scripts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "check-coverage": "istanbul check-coverage --statements 100 --branches 100 --functions 100 --lines 100"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add check-coverage in your CI config file:</p>
+<ul>
+<li><code>.travis.yml</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">script:</div><div class="line">  - npm run test:single</div><div class="line">  - npm run check-coverage</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Add code coverage reporting</strong>:</p>
+<ul>
+<li>Create an account at <a href="https://codecov.io/" target="_blank" rel="external">codecov.io</a> </li>
+<li><code>npm i -D codecov.io</code></li>
+<li><p>Add <strong>report-coverage</strong> into npm scripts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "report-coverage": "cat ./coverage/lcov.info | codecov"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add report-coverage in your CI config file:</p>
+<ul>
+<li><code>.travis.yml</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">after_success:</div><div class="line">  - npm run report-coverage</div><div class="line">  - npm run semantic-release</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Adding badges to your README</strong>:</p>
+<ul>
+<li>Go to <a href="http://shields.io/" target="_blank" rel="external">shields.io</a> </li>
+<li>Choose your badges! :)</li>
+<li>Markdown structure to add badges: <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![image description</span>](<span class="link">shields.io link</span>)](<span class="link">link the badge to the respective place</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Adding ES6 Support</strong>:</p>
+<ul>
+<li><code>npm i -D babel</code></li>
+<li><p>Add a <strong>build</strong> task in npm scripts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "build": "babel src/index.js -o dist/index.js"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Change the “main” file in your package.json to <code>dist/index.js</code></p>
+</li>
+<li><p>Add a <strong>prebuild</strong> task into npm scripts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "prebuild": "rm -rf dist &amp;&amp; mkdir dist"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add <strong>build</strong> in your CI config file:<br><code>.travis.yml</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">script:</div><div class="line">  - npm run test:single</div><div class="line">  - npm run check-coverage</div><div class="line">  - npm run build</div></pre></td></tr></table></figure>
+</li>
+<li><p>Add a <strong>postbuild</strong> task in npm scripts:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "postbuild": "cp src/starwars-names.json dist/starwars-names.json"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Adding ES6 Support in Tests using Mocha and Babel</strong>:</p>
+<ul>
+<li>Update your <strong>test</strong> and <strong>test:single</strong> tasks on npm script:<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">  "test": "mocha src/index.test.js -w --compilers js:babel/register",</div><div class="line">  "test:single": "istanbul cover -x *.test.js _mocha -- -R spec src/index.test.js --compilers js:babel/register"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Limit Built Branches on Travis</strong>:</p>
+<ul>
+<li>Add the following code in your <code>.travis.yml</code>:<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">branches:</span></div><div class="line"><span class="symbol">  only:</span></div><div class="line">    - master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Good luck in your next Open Source JavaScript project</strong>!!!</p>
+<blockquote>
+<p>If you found something wrong, you can contribute to this article <a href="https://github.com/ericdouglas/blog-assets/blob/master/source/_posts/checklist-for-your-new-open-source-javascript-project.md" target="_blank" rel="external">here</a>.</p>
+</blockquote>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Checklist"><span class="toc-number">1.</span> <span class="toc-text">Checklist</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&text=Checklist for your new Open Source JavaScript Project"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&is_video=false&description=Checklist for your new Open Source JavaScript Project"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Checklist for your new Open Source JavaScript Project&body=Check out this article: http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&title=Checklist for your new Open Source JavaScript Project"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/&name=Checklist for your new Open Source JavaScript Project&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Eric Douglas
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-48165601-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'ericdouglas';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The intention of this article is to be a helpful reminder for those that use git to manage their projects. If you are new to git, first read some contents listed in the References section, and then c">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git - Useful Tips">
+<meta property="og:url" content="http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/index.html">
+<meta property="og:site_name" content="Eric Douglas">
+<meta property="og:description" content="The intention of this article is to be a helpful reminder for those that use git to manage their projects. If you are new to git, first read some contents listed in the References section, and then c">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/QRZsSQI.jpg">
+<meta property="og:image" content="https://i.imgur.com/B0w11nb.png">
+<meta property="og:image" content="http://i.imgur.com/F9vilJE.png">
+<meta property="og:updated_time" content="2017-08-27T10:55:50.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git - Useful Tips">
+<meta name="twitter:description" content="The intention of this article is to be a helpful reminder for those that use git to manage their projects. If you are new to git, first read some contents listed in the References section, and then c">
+<meta name="twitter:image" content="http://i.imgur.com/QRZsSQI.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Git - Useful Tips</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Eric Douglas" type="application/atom+xml" />
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2016/08/21/Installing-Compass-on-Linux-Mint/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2015/09/27/checklist-for-your-new-open-source-javascript-project/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&text=Git - Useful Tips"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&is_video=false&description=Git - Useful Tips"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git - Useful Tips&body=Check out this article: http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&name=Git - Useful Tips&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.</span> <span class="toc-text">Table of Contents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Commands"><span class="toc-number">2.</span> <span class="toc-text">Basic Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commit-Structure"><span class="toc-number">3.</span> <span class="toc-text">Commit Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-the-Staging-Area"><span class="toc-number">4.</span> <span class="toc-text">Managing the Staging Area</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stashes-and-Branches"><span class="toc-number">5.</span> <span class="toc-text">Stashes and Branches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stash"><span class="toc-number">5.1.</span> <span class="toc-text">Stash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch"><span class="toc-number">5.2.</span> <span class="toc-text">Branch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-a-Remote-Repository"><span class="toc-number">6.</span> <span class="toc-text">Managing a Remote Repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#More-Useful-Commands"><span class="toc-number">7.</span> <span class="toc-text">More Useful Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Workflow"><span class="toc-number">8.</span> <span class="toc-text">Git Workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">9.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Git - Useful Tips
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Eric Douglas</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-04-01T11:29:23.000Z" itemprop="datePublished">2016-04-01</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/git/">git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="http://i.imgur.com/QRZsSQI.jpg" alt="git"></p>
+<p>The intention of this article is to be a helpful reminder for those that use git to manage their projects.</p>
+<p>If you are new to git, first read some contents listed in the <a href="#References">References</a> section, and then come back and use this article as a cheatsheet.</p>
+<p>In front of the git commands, you’ll see some aliases from the <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet#git" target="_blank" rel="external">oh-my-zsh cheatsheet</a>.</p>
+<p><strong>Let’s get started!</strong></p>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ul>
+<li><a href="#Basic-Commands">Basic Commands</a></li>
+<li><a href="#Commit-Structure">Commit Structure</a></li>
+<li><a href="#Managing-the-Staging-Area">Managing the Staging Area</a></li>
+<li><a href="#Stashes-and-Branches">Stashes and Branches</a></li>
+<li><a href="#Managing-a-Remote-Repository">Managing a Remote Repository</a></li>
+<li><a href="#More-Useful-Commands">More Useful Commands</a></li>
+<li><a href="#Git-Workflow">Git Workflow</a></li>
+<li><a href="#References">References</a></li>
+</ul>
+<h2 id="Basic-Commands"><a href="#Basic-Commands" class="headerlink" title="Basic Commands"></a>Basic Commands</h2><ul>
+<li><code>git config --global user.name &quot;Your Name&quot;</code></li>
+<li><code>git config --global user.email &quot;youremail@example.com&quot;</code></li>
+<li><code>git config --global core.editor &lt;your favorite editor here&gt;</code><ul>
+<li>Ex: <code>git config --global core.editor vim</code></li>
+</ul>
+</li>
+<li><code>git init</code>: Start a new git repository.</li>
+</ul>
+<h2 id="Commit-Structure"><a href="#Commit-Structure" class="headerlink" title="Commit Structure"></a>Commit Structure</h2><ul>
+<li><code>git status</code> (<code>gst</code>): See the project status.</li>
+<li>Working Areas: <ul>
+<li><strong>.git Directory</strong></li>
+<li><strong>Staging Area</strong></li>
+<li><strong>working Directory</strong><br><img src="https://i.imgur.com/B0w11nb.png" alt="Illustration of the working areas"></li>
+</ul>
+</li>
+<li><code>git add &lt;filename&gt;</code> (<code>ga</code>): Add a file to the Staging Area.</li>
+<li><code>git add .</code> (<code>gaa</code>): Add all files to the Staging Area.</li>
+<li><code>git add *.js</code>: Add all <code>.js</code> files to the Staging Area.</li>
+<li><code>git rm --cached &lt;file&gt;</code>: Remove a <strong>new file</strong> from the Staging area.</li>
+<li><code>git commit -m &quot;My first commit&quot;</code> (<code>gcmsg</code>): Create a commit with a message.</li>
+<li><strong><code>git commit -v -a</code> (<code>gca</code>)</strong>: <ul>
+<li><code>-v</code> is verbose, shows the diff at bottom and more meaningful information. </li>
+<li><code>-a</code> is like <code>git add .</code> so it adds <strong>all</strong> files that have been modified and deleted, but new files you have not told Git about are not affected.</li>
+</ul>
+</li>
+<li><code>git help &lt;command&gt;</code>: Open the manual for the respective command.</li>
+<li><code>git log</code> (<code>glg</code>, <code>glgg</code>, <code>glo</code>, <code>glog</code>): Show all commits/history of the project.</li>
+</ul>
+<h2 id="Managing-the-Staging-Area"><a href="#Managing-the-Staging-Area" class="headerlink" title="Managing the Staging Area"></a>Managing the Staging Area</h2><ul>
+<li><code>git reset HEAD &lt;filename&gt;</code> (<code>grh</code>): Remove a modified file from the Staging area.</li>
+<li><code>git reset HEAD</code> (grh): Remove all modified files from the Staging area.</li>
+<li><code>git checkout &lt;filename&gt;</code> (<code>gco</code>): Remove a modified file from the Staging area and undo its alterations.</li>
+<li><code>git commit -m &quot;My first commit&quot; --amend</code> (``): Add the files/modifications in the Staging area in the last commit.</li>
+<li><strong><code>git commit -v -a --amend</code> (<code>gca!</code>): Add the files/modifications in the Staging area in the last commit</strong>.</li>
+<li><strong>PROTIP</strong>: don’t use <code>--amend</code> after send the modification to some remote repository. This command is just for local development.</li>
+<li><code>.gitignore</code>: file that tells to git what files should not be tracked. <ul>
+<li>You can add a file that’s ignored with <code>git add &lt;filename&gt; -f</code></li>
+</ul>
+</li>
+<li><code>git diff &lt;filename&gt;</code> (<code>gd</code>): Show the modifications in the current file based in its last commit.</li>
+<li><code>git diff</code> (<code>gd</code>): Show the modifications in all files based in their last commit.</li>
+<li><code>git reset HEAD~2 --soft</code>: Remove the last two commits from the project history but <strong>DO NOT DISCARD</strong> the modifications.</li>
+<li><code>git reset HEAD~2 --hard</code>: Remove the last two commits from the project history but <strong>DISCARD</strong> the modifications and all new files that was created in such commits. </li>
+<li><code>git reset &lt;commit&gt; --soft --hard</code>:<ul>
+<li><code>--soft</code>: Leaves all your changed files “Changes to be committed”.</li>
+<li><code>--hard</code>: Any changes to tracked files in the working tree since <code>&lt;commit&gt;</code> are discarded.</li>
+</ul>
+</li>
+<li><code>git reflog</code>: show all commits that were “deleted”.</li>
+<li><code>git merge &lt;commit hash&gt;</code>: restore the commit.</li>
+<li><strong><code>git add -i</code> (<code>ga -i</code>): Open an interactive mode. REALLY USEFUL!</strong><ul>
+<li><strong>obs</strong>: use with the <em>4: add untracked</em> option to <code>git add</code> files quickly.</li>
+<li><code>1 &lt;enter&gt;</code>: Select file 1 to be added to the Staging area.</li>
+<li><code>1,3 &lt;enter&gt;</code>: Select files 1 and 3 to be added to the Staging area.</li>
+<li><code>1-5 &lt;enter&gt;</code>: Select files 1 to 5 to be added to the Staging area.</li>
+<li><code>-2 &lt;enter&gt;</code>: Deselect file 2 to be added to the Staging area.</li>
+<li><code>-2-4 &lt;enter&gt;</code>: Deselect files 2 to 4 to be added to the Staging area.</li>
+</ul>
+</li>
+<li><code>git clean -f</code>: Remove (delete) untracked files from the working tree.</li>
+</ul>
+<h2 id="Stashes-and-Branches"><a href="#Stashes-and-Branches" class="headerlink" title="Stashes and Branches"></a>Stashes and Branches</h2><h3 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h3><ul>
+<li><code>git stash</code> (<code>gsta</code>): Remove all files in the Staging Area to the <em>“Stash Area”</em>, that works as another type of <em>Working Area</em>.</li>
+<li><code>git stash list</code>: Show a list with all stashes.</li>
+<li><code>git stash apply</code>: Return all files from the last created stash to the Staging Area.</li>
+<li><code>git stash apply stash@{2}</code>: Return all files from the <code>stash@{2}</code> to the Staging Area.<ul>
+<li><strong>obs</strong>: <code>stash@{0}</code> is always the most recent stash.</li>
+</ul>
+</li>
+<li><code>git stash clear</code>: Clear all stashes.</li>
+<li><code>git stash save &quot;name of the stash&quot;</code>: Save a new stash with a particular name.</li>
+<li><code>git stash pop</code> (<code>gstp</code>): Return all files from the last created stash to the Staging Area and remove the stash from the list.</li>
+<li><code>git stash drop</code> (<code>gstd</code>): Remove the last created stash (<code>stash@{0}</code>) from the list. <strong>Be careful!</strong></li>
+<li><code>git stash drop stash@{2}</code>: Remove the <code>stash@{2}</code> stash from the list. <strong>Be careful!</strong></li>
+</ul>
+<h3 id="Branch"><a href="#Branch" class="headerlink" title="Branch"></a>Branch</h3><ul>
+<li><code>git checkout -b develop</code> (<code>gco</code>): Create a new branch called <em>develop</em> and change from the current branch to the <em>develop</em> branch.</li>
+<li><code>git branch</code> (<code>gb</code>): List all branches.</li>
+<li><code>git checkout master</code> (<code>gcm</code>): Switch for the <code>master</code> branch.</li>
+<li><code>git merge &lt;branch&gt;</code> (<code>gm</code>): Merge a branch into another.</li>
+<li><code>gitk --all &amp;</code>: Open a GUI to visualize your branches and commits.<ul>
+<li>You can test <a href="http://www.gitkraken.com/" target="_blank" rel="external">GitKraken</a> too :)</li>
+</ul>
+</li>
+<li><code>git rebase master</code>: Add the modifications from the <code>master</code> branch into the current branch and move those alterations in the current branch to the top of what was added. <em>“…rewinding head to replay your work on top of it”</em><ul>
+<li><code>git rebase --continue</code>: after resolve conflicts.</li>
+</ul>
+</li>
+<li><code>git branch -d &lt;branch&gt;</code>: delete a branch.<ul>
+<li><code>-D</code>: force to delete a branch.</li>
+</ul>
+</li>
+<li><strong>PROTIP</strong>: one branch for each functionality or bugfix. There is no problem in create lots of branches!</li>
+<li><p><code>git merge &lt;branch&gt; --squash</code>: Concatenate several commits into one.</p>
+<ul>
+<li><strong><code>--squash</code> workflow</strong>:<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Go to the `master` branch</span></div><div class="line">git checkout master</div><div class="line"><span class="comment"># Create a temp branch</span></div><div class="line">git checkout -b temp</div><div class="line"><span class="comment"># Merge the feature/x branch into the temp using --squash</span></div><div class="line">git merge feature/x --squash</div><div class="line"><span class="comment"># See the new modifications/files in the Staging Area</span></div><div class="line">git status</div><div class="line"><span class="comment"># Create the unified commit</span></div><div class="line">git commit -m <span class="string">"Add feature/x"</span></div><div class="line"><span class="comment"># Delete the feature/x branch</span></div><div class="line">git branch -D feature/x</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Differences between <code>rebase</code> and <code>merge</code>:</p>
+<ul>
+<li><strong>rebase</strong>: <ul>
+<li>keeps the history in a linear fashion;</li>
+<li><strong>destructive</strong>: remove the last commit and creates a new one;</li>
+<li>do not use this method if the commit is already in the remote server.</li>
+</ul>
+</li>
+<li><strong>merge</strong>:<ul>
+<li>useful for keeping the forking history;</li>
+<li>creates a new commit to unify two branches.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Managing-a-Remote-Repository"><a href="#Managing-a-Remote-Repository" class="headerlink" title="Managing a Remote Repository"></a>Managing a Remote Repository</h2><ul>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code>: Add a new remote repository that will be tracked.</li>
+<li><code>git remote rm &lt;name&gt;</code>: Remove a remote repository.</li>
+<li><code>git push &lt;remote&gt; &lt;remote-branch&gt;</code> (<code>gp</code>, <code>ggp</code>): Push local commits to a remote repository in the specified branch.</li>
+<li><code>git fetch &lt;remote&gt; &lt;remote-branch&gt;</code> (<code>gfa</code>): Fetch new commits from a remote repository into a special branch <code>&lt;remote&gt;/&lt;branch&gt;</code>.</li>
+<li><code>git pull &lt;remote&gt; &lt;remote-branch&gt;</code> (<code>gl</code>, <code>ggl</code>): Incorporates changes from a remote repository into the current branch. In its default mode, <code>git pull</code> is shorthand for <code>git fetch</code> followed by <code>git merge</code><ul>
+<li><code>git pull --rebase</code> (<code>gup</code>): Runs <code>git rebase</code> instead of <code>git merge</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="More-Useful-Commands"><a href="#More-Useful-Commands" class="headerlink" title="More Useful Commands"></a>More Useful Commands</h2><ul>
+<li><code>git tag &lt;name&gt;</code>: Create a new tag (<em>e.g.</em> <code>v1.3</code>).</li>
+<li><code>git push --tags</code>: Push all tags to the remote repository.</li>
+<li><code>git push &lt;tag&gt;</code>: Push a specific tag to the remote repository.</li>
+</ul>
+<h2 id="Git-Workflow"><a href="#Git-Workflow" class="headerlink" title="Git Workflow"></a>Git Workflow</h2><p><img src="http://i.imgur.com/F9vilJE.png" alt="git workflow"></p>
+<ul>
+<li>Types of branches: <code>master</code>, <code>develop</code>, <code>feature</code>, <code>release</code>, <code>hotfix</code></li>
+<li><strong>MAIN BRANCHES</strong> <ul>
+<li><strong><code>master</code> branch</strong>:<ul>
+<li><code>origin/master</code>: always reflects a <em>production-ready</em> state.</li>
+</ul>
+</li>
+<li><strong><code>develop</code> branch</strong>:<ul>
+<li><code>origin/develop</code>: always reflects a state with the latest delivered development changes for the next release.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>SUPPORTING BRANCHES</strong> </p>
+<ul>
+<li><p><strong><code>feature</code> branch</strong>:</p>
+<ul>
+<li>Comes from: <code>develop</code>.</li>
+<li>Merge into: <code>develop</code>.</li>
+<li>Name convention: <code>feature/feature-name</code>.</li>
+<li><p>Create the branch: </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b feature/my-feature develop</div></pre></td></tr></table></figure>
+</li>
+<li><p>Merge the branch (finishing the <code>feature</code> branch):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git checkout develop</div><div class="line">git merge --no-ff feature/my-feature</div><div class="line">git branch -d feature/my-feature</div><div class="line">git push origin develop</div></pre></td></tr></table></figure>
+</li>
+<li><p>The <code>--no-ff</code> flag causes the merge to always create a new commit object. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. </p>
+</li>
+</ul>
+</li>
+<li><p><strong><code>release</code> branch</strong>:</p>
+<ul>
+<li>Comes from: <code>develop</code>.</li>
+<li>Merge into: <code>develop</code> <strong>and</strong> <code>master</code>.</li>
+<li>Name convention: <code>release/release-v1.3</code>.</li>
+<li><p>Create the branch: </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git checkout -b release/release-v1.3 develop</div><div class="line"><span class="comment"># Bump your software version to v1.3</span></div><div class="line">git commit -a -m <span class="string">"Bumped version number to v1.3"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Merge the branch (finishing the <code>release</code> branch):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Merge into master</span></div><div class="line">git checkout master</div><div class="line">git merge --no-ff release/release-v1.3</div><div class="line">git tag -a v1.3</div><div class="line">git push origin master &amp;&amp; git push --tags</div><div class="line"></div><div class="line"><span class="comment"># Merge into develop</span></div><div class="line">git checkout develop</div><div class="line">git merge --no-ff release/release-v1.3</div><div class="line"></div><div class="line">git branch -d release/release-v1.3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong><code>hotfix</code> branch</strong>:</p>
+<ul>
+<li>Comes from: <code>master</code>.</li>
+<li>Merge into: <code>develop</code> <strong>and</strong> <code>master</code>.</li>
+<li>Name convention: <code>hotfix/hotfix-v1.3.1</code>.</li>
+<li><p>Create the branch: </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git checkout -b hotfix/hotfix-v1.3.1 develop</div><div class="line"><span class="comment"># Bump your software version to v1.3.1</span></div><div class="line">git commit -a -m <span class="string">"Bumped version number to v1.3.1"</span></div><div class="line"><span class="comment"># After fix the bug</span></div><div class="line">git commit -m <span class="string">"Fixed severe production problem"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>Merge the branch (finishing the <code>hotfix</code> branch):</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Merge into master</span></div><div class="line">git checkout master</div><div class="line">git merge --no-ff hotfix/hotfix-v1.3.1</div><div class="line">git tag -a v1.3.1</div><div class="line">git push origin master &amp;&amp; git push --tags</div><div class="line"></div><div class="line"><span class="comment"># Merge into develop</span></div><div class="line">git checkout develop</div><div class="line">git merge --no-ff hotfix/hotfix-v1.3.1</div><div class="line"></div><div class="line">git branch -d hotfix/hotfix-v1.3.1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="http://www.akitaonrails.com/2010/08/17/screencast-comecando-com-git" target="_blank" rel="external">Começando com git</a> <code>pt-br</code></li>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="external">A successful Git branching model</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/" target="_blank" rel="external">Comparing workflows</a></li>
+<li><a href="http://danielkummer.github.io/git-flow-cheatsheet/" target="_blank" rel="external">git-flow cheatsheet</a></li>
+<li><a href="https://github.com/open-source-society/computer-science#prerequisite" target="_blank" rel="external">Resources to learn git</a></li>
+<li><a href="https://github.com/ericdouglas/dev-log/blob/master/source/git.md" target="_blank" rel="external">More resources</a></li>
+</ul>
+<blockquote>
+<p>If you found something wrong, you can contribute to this article <a href="https://github.com/ericdouglas/blog-assets/blob/master/source/_posts/Git-Useful-Tips.md" target="_blank" rel="external">here</a>.</p>
+</blockquote>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.</span> <span class="toc-text">Table of Contents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Commands"><span class="toc-number">2.</span> <span class="toc-text">Basic Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commit-Structure"><span class="toc-number">3.</span> <span class="toc-text">Commit Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-the-Staging-Area"><span class="toc-number">4.</span> <span class="toc-text">Managing the Staging Area</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stashes-and-Branches"><span class="toc-number">5.</span> <span class="toc-text">Stashes and Branches</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stash"><span class="toc-number">5.1.</span> <span class="toc-text">Stash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch"><span class="toc-number">5.2.</span> <span class="toc-text">Branch</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Managing-a-Remote-Repository"><span class="toc-number">6.</span> <span class="toc-text">Managing a Remote Repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#More-Useful-Commands"><span class="toc-number">7.</span> <span class="toc-text">More Useful Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Workflow"><span class="toc-number">8.</span> <span class="toc-text">Git Workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">9.</span> <span class="toc-text">References</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&text=Git - Useful Tips"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&is_video=false&description=Git - Useful Tips"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Git - Useful Tips&body=Check out this article: http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&title=Git - Useful Tips"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/&name=Git - Useful Tips&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Eric Douglas
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-48165601-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'ericdouglas';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+

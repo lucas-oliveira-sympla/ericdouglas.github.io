@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Image generated on Instacode - algorithm  In this article I’ll show how I’m learning/practicing Elixir, but the steps showed here aim to be valid for any new language one want to learn/practice. The">
+<meta name="keywords" content="elixir,testing,tdd,algorithms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Practicing Elixir - or any - programming language">
+<meta property="og:url" content="http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/index.html">
+<meta property="og:site_name" content="Eric Douglas">
+<meta property="og:description" content="Image generated on Instacode - algorithm  In this article I’ll show how I’m learning/practicing Elixir, but the steps showed here aim to be valid for any new language one want to learn/practice. The">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://i.imgur.com/LsHtF9t.png">
+<meta property="og:updated_time" content="2017-08-27T10:55:50.587Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Practicing Elixir - or any - programming language">
+<meta name="twitter:description" content="Image generated on Instacode - algorithm  In this article I’ll show how I’m learning/practicing Elixir, but the steps showed here aim to be valid for any new language one want to learn/practice. The">
+<meta name="twitter:image" content="http://i.imgur.com/LsHtF9t.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Practicing Elixir - or any - programming language</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Eric Douglas" type="application/atom+xml" />
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2017/08/15/basic-cli-postgres-management/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&text=Practicing Elixir - or any - programming language"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&is_video=false&description=Practicing Elixir - or any - programming language"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Practicing Elixir - or any - programming language&body=Check out this article: http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&name=Practicing Elixir - or any - programming language&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-algorithms"><span class="toc-number">1.</span> <span class="toc-text">Why algorithms?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Write-tests"><span class="toc-number">2.</span> <span class="toc-text">Write tests</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-your-algorithms-somewhere"><span class="toc-number">3.</span> <span class="toc-text">Backup your algorithms somewhere</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blocks-of-theory-and-practice"><span class="toc-number">4.</span> <span class="toc-text">Blocks of theory and practice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Let’s-code"><span class="toc-number">5.</span> <span class="toc-text">Let’s code!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Setup"><span class="toc-number">6.</span> <span class="toc-text">Test Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O-Strategy"><span class="toc-number">7.</span> <span class="toc-text">I/O Strategy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solving-the-challenge"><span class="toc-number">8.</span> <span class="toc-text">Solving the challenge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-the-mix-tool"><span class="toc-number">9.</span> <span class="toc-text">Why the mix tool?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-mix"><span class="toc-number">10.</span> <span class="toc-text">Using mix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuring-your-test-setup-again"><span class="toc-number">11.</span> <span class="toc-text">Configuring your test setup - again :)</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Practicing Elixir - or any - programming language
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Eric Douglas</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-08-24T17:31:28.000Z" itemprop="datePublished">2017-08-24</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/algorithms/">algorithms</a>, <a class="tag-link" href="/tags/elixir/">elixir</a>, <a class="tag-link" href="/tags/tdd/">tdd</a>, <a class="tag-link" href="/tags/testing/">testing</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><img src="http://i.imgur.com/LsHtF9t.png" alt="algorithm in elixir"></p>
+<blockquote>
+<p>Image generated on <a href="http://instaco.de/113274" target="_blank" rel="external">Instacode</a> - <a href="https://github.com/ericdouglas/labs/blob/master/hackerrank/algorithms/old-elixir/005-diagonal-difference/005_diagonal_difference.ex" target="_blank" rel="external">algorithm</a></p>
+</blockquote>
+<p>In this article I’ll show how I’m learning/practicing Elixir, but the steps showed here aim to be valid for any new language one want to learn/practice.</p>
+<p>The steps are basically:</p>
+<ol>
+<li>Understand the pros and cons of the language</li>
+<li>Familiarize with the syntax and semantic of the language</li>
+<li>Learn some|enough constructs to start expressing yourself in the language</li>
+<li>Practice the acquired knowledge resolving some algorithm challenges</li>
+<li>Return to step 3</li>
+</ol>
+<p>I read the <a href="https://elixir-lang.org/getting-started/introduction.html" target="_blank" rel="external">Elixir guides</a> in chunks and started to practice alongside on <a href="https://www.hackerrank.com/domains/algorithms/warmup" target="_blank" rel="external">HackerRank</a> to really internalize what I was learning.</p>
+<p>I’m liking this approach very much so here are some tips that are not so obvious on how you can have some fun while learning a new programming language.</p>
+<h2 id="Why-algorithms"><a href="#Why-algorithms" class="headerlink" title="Why algorithms?"></a>Why algorithms?</h2><p>Because this kind of problem is an interesting way to put yourself searching all the API of the language in order to solve the challenge in the more elegant/concise way you currently can.</p>
+<p>Since some challenges may not be so common, you can end up learning new tricks that will help you on your daily routine as well.</p>
+<h2 id="Write-tests"><a href="#Write-tests" class="headerlink" title="Write tests"></a>Write tests</h2><p>Test-driven development is a <a href="https://elixirforum.com/t/bdd-tdd-criticized/759" target="_blank" rel="external">polemic topic</a> but this scenario (algorithms) is one that you can have real benefits of such approach.</p>
+<p>It will help you test your algorithm much faster and precisely, with almost no effort. You just need to run one command.</p>
+<p>In the end of the article I’ll solve an algorithm with you so we’ll see how to handle this task.</p>
+<h2 id="Backup-your-algorithms-somewhere"><a href="#Backup-your-algorithms-somewhere" class="headerlink" title="Backup your algorithms somewhere"></a>Backup your algorithms somewhere</h2><p>Don’t keep your solutions only in the site you are using to test your knowledge. One reason to develop everything on your machine is to start from the day zero to have a real experience with all the working environment you will inevitable face if you start to create more ambitious programs in that new language.</p>
+<p>[GitHub | BitBucket | GitLab] are great places to store your work so you can also easily access it if needed.</p>
+<p>Personally, I always search code I put there to remember some aspect of the tool I’m currently using that I forgot. <strong>It’s very helpful!</strong></p>
+<h2 id="Blocks-of-theory-and-practice"><a href="#Blocks-of-theory-and-practice" class="headerlink" title="Blocks of theory and practice"></a>Blocks of theory and practice</h2><p>Another useful tip is: put some milestones in your study so after read X chapters of a book or Y pages on the documentation, you will solve N exercises.</p>
+<p>Example:</p>
+<ul>
+<li>After each chapter of <code>&lt;Book&gt;</code> that I read, I’ll solve 3 exercises on <code>&lt;code challenge site&gt;</code></li>
+</ul>
+<p>It’s also useful take some notes while reading your resources, so you can read it after you finish the exercises. The flux will be:</p>
+<ol>
+<li>Theory</li>
+<li>Exercises</li>
+<li>Review annotations</li>
+</ol>
+<h2 id="Let’s-code"><a href="#Let’s-code" class="headerlink" title="Let’s code!"></a>Let’s code!</h2><p>Now we’ll solve the last exercise in the warmup section of HackerRank.</p>
+<p>I chose this exercise - <a href="https://www.hackerrank.com/challenges/time-conversion" target="_blank" rel="external">Time Conversion</a> - because looking the statistics, it’s the hardest in that section but using Elixir to solve this end up being really easy.</p>
+<p>Since we are using a TDD approach, let’s first write our tests.</p>
+<blockquote>
+<p><strong><a href="https://github.com/ericdouglas/labs/tree/master/hackerrank/algorithms/old-elixir/010-time-conversion" target="_blank" rel="external">You can check the final source code here</a></strong></p>
+</blockquote>
+<h2 id="Test-Setup"><a href="#Test-Setup" class="headerlink" title="Test Setup"></a>Test Setup</h2><p>Elixir has a built-in test tool called <a href="https://hexdocs.pm/ex_unit/ExUnit.html" target="_blank" rel="external">ExUnit</a>, so our work here is pretty minimal.</p>
+<p>Let’s create a file called <code>time_conversion_test.exs</code>.</p>
+<p>After this, put the following code in such file to have the basic setup in place:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ExUnit.start()</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TimeConversionTest</span></span> <span class="keyword">do</span></div><div class="line">  <span class="keyword">use</span> ExUnit.Case</div><div class="line"></div><div class="line">  test <span class="string">"the truth"</span> <span class="keyword">do</span></div><div class="line">    assert <span class="number">1</span> == <span class="number">1</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>It’s done! :)</p>
+<p>Go to your terminal and type <code>elixir time_conversion_test.exs</code>. You will se the following:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; elixir time_conversion_test.exs</div><div class="line"></div><div class="line">.</div><div class="line"></div><div class="line">Finished <span class="keyword">in</span> <span class="number">0.08</span> seconds (<span class="number">0.07</span>s <span class="keyword">on</span> load, <span class="number">0.01</span>s <span class="keyword">on</span> tests)</div><div class="line"><span class="number">1</span> test, <span class="number">0</span> failures</div><div class="line"></div><div class="line">Randomized <span class="keyword">with</span> seed <span class="number">501932</span></div></pre></td></tr></table></figure>
+<p>Now you verified the test tool is working, let’s write all tests we need for this algorithm.</p>
+<p>You can already import the module we will actually test, so add <code>import TimeConversion</code> above the <code>test</code> case.</p>
+<blockquote>
+<p><strong>Important:</strong> since you are importing a module from another file, you will need to compile such file every time before you run your tests in order to get the last version of it. We’ll see how to use a tool to automate such task below. For now, to compile your code you need to run <code>elixirc name_of_file.ex</code>. Only the module/file where the algorithm is created needs to be compiled. You don’t need to compile test files!</p>
+</blockquote>
+<p>We will test every <em>hour</em> and <em>hour and half</em> to assure our program works in all cases. Your final test file should looks like this:</p>
+<blockquote>
+<p>The <code>main</code> function you will see is actually the <code>main</code> function from the <code>TimeConversion</code> module we will write next. Since we imported it, we can use the <code>main</code> function directly.</p>
+<p>If you prefer, you can use <code>TimeConversion.main()</code> without import <code>TimeConversion</code> as well.</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">ExUnit.start()</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TimeConversionTest</span></span> <span class="keyword">do</span></div><div class="line">  <span class="keyword">use</span> ExUnit.Case</div><div class="line">  import TimeConversion</div><div class="line"></div><div class="line">  test <span class="string">"Convert 12-hour time to 24-hour format"</span> <span class="keyword">do</span></div><div class="line">    assert main(<span class="string">"12:00:00AM"</span>) == <span class="string">"00:00:00"</span></div><div class="line">    assert main(<span class="string">"12:33:11AM"</span>) == <span class="string">"00:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"01:00:00AM"</span>) == <span class="string">"01:00:00"</span></div><div class="line">    assert main(<span class="string">"01:33:11AM"</span>) == <span class="string">"01:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"02:00:00AM"</span>) == <span class="string">"02:00:00"</span></div><div class="line">    assert main(<span class="string">"02:33:11AM"</span>) == <span class="string">"02:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"03:00:00AM"</span>) == <span class="string">"03:00:00"</span></div><div class="line">    assert main(<span class="string">"03:33:11AM"</span>) == <span class="string">"03:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"04:00:00AM"</span>) == <span class="string">"04:00:00"</span></div><div class="line">    assert main(<span class="string">"04:33:11AM"</span>) == <span class="string">"04:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"05:00:00AM"</span>) == <span class="string">"05:00:00"</span></div><div class="line">    assert main(<span class="string">"05:33:11AM"</span>) == <span class="string">"05:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"06:00:00AM"</span>) == <span class="string">"06:00:00"</span></div><div class="line">    assert main(<span class="string">"06:33:11AM"</span>) == <span class="string">"06:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"07:00:00AM"</span>) == <span class="string">"07:00:00"</span></div><div class="line">    assert main(<span class="string">"07:33:11AM"</span>) == <span class="string">"07:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"08:00:00AM"</span>) == <span class="string">"08:00:00"</span></div><div class="line">    assert main(<span class="string">"08:33:11AM"</span>) == <span class="string">"08:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"09:00:00AM"</span>) == <span class="string">"09:00:00"</span></div><div class="line">    assert main(<span class="string">"09:33:11AM"</span>) == <span class="string">"09:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"10:00:00AM"</span>) == <span class="string">"10:00:00"</span></div><div class="line">    assert main(<span class="string">"10:33:11AM"</span>) == <span class="string">"10:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"11:00:00AM"</span>) == <span class="string">"11:00:00"</span></div><div class="line">    assert main(<span class="string">"11:33:11AM"</span>) == <span class="string">"11:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"12:00:00PM"</span>) == <span class="string">"12:00:00"</span></div><div class="line">    assert main(<span class="string">"12:33:11PM"</span>) == <span class="string">"12:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"01:00:00PM"</span>) == <span class="string">"13:00:00"</span></div><div class="line">    assert main(<span class="string">"01:33:11PM"</span>) == <span class="string">"13:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"02:00:00PM"</span>) == <span class="string">"14:00:00"</span></div><div class="line">    assert main(<span class="string">"02:33:11PM"</span>) == <span class="string">"14:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"03:00:00PM"</span>) == <span class="string">"15:00:00"</span></div><div class="line">    assert main(<span class="string">"03:33:11PM"</span>) == <span class="string">"15:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"04:00:00PM"</span>) == <span class="string">"16:00:00"</span></div><div class="line">    assert main(<span class="string">"04:33:11PM"</span>) == <span class="string">"16:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"05:00:00PM"</span>) == <span class="string">"17:00:00"</span></div><div class="line">    assert main(<span class="string">"05:33:11PM"</span>) == <span class="string">"17:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"06:00:00PM"</span>) == <span class="string">"18:00:00"</span></div><div class="line">    assert main(<span class="string">"06:33:11PM"</span>) == <span class="string">"18:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"07:00:00PM"</span>) == <span class="string">"19:00:00"</span></div><div class="line">    assert main(<span class="string">"07:33:11PM"</span>) == <span class="string">"19:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"08:00:00PM"</span>) == <span class="string">"20:00:00"</span></div><div class="line">    assert main(<span class="string">"08:33:11PM"</span>) == <span class="string">"20:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"09:00:00PM"</span>) == <span class="string">"21:00:00"</span></div><div class="line">    assert main(<span class="string">"09:33:11PM"</span>) == <span class="string">"21:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"10:00:00PM"</span>) == <span class="string">"22:00:00"</span></div><div class="line">    assert main(<span class="string">"10:33:11PM"</span>) == <span class="string">"22:33:11"</span></div><div class="line"></div><div class="line">    assert main(<span class="string">"11:00:00PM"</span>) == <span class="string">"23:00:00"</span></div><div class="line">    assert main(<span class="string">"11:33:11PM"</span>) == <span class="string">"23:33:11"</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>Now let’s create our algorithm!</p>
+<h2 id="I-O-Strategy"><a href="#I-O-Strategy" class="headerlink" title="I/O Strategy"></a>I/O Strategy</h2><p>Since HackerRank pass the input for our algorithm using the stdin (standard input stream) and read our solution from the stdout (standard output stream), a great tip here is to <strong>put that side-effect part outside of your main module</strong>. This will assure you are working in a more functional style/mindset.</p>
+<p>The mental model here is:</p>
+<ol>
+<li>Create a module that will be your solution for the challenge</li>
+<li>Pass the necessary input to solve the challenge for the <code>main</code> function in such module</li>
+<li>Create helper functions inside your module and pipe then in the <code>main</code> function</li>
+<li>Return the answer from the <code>main</code> function and pipe it to the stdout</li>
+</ol>
+<p>Let’s create our file <code>time_conversion.ex</code> and then configure the basic setup for such approach:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TimeConversion</span></span> <span class="keyword">do</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(input) <span class="keyword">do</span></div><div class="line">    input</div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">input = IO.gets(<span class="string">""</span>) |&gt; String.trim</div><div class="line">TimeConversion.main(input) |&gt; IO.puts</div></pre></td></tr></table></figure>
+<p>As you can see, we are passing the input in the end of the file to our <code>main</code> function and piping it to the <code>IO.puts</code> function that will print the result to the console.</p>
+<p>Now the last thing you need to do is actually figure out how to solve the problem! :D</p>
+<blockquote>
+<p>I recommend you to try solve this before see the solution. It’s a very interesting challenge!</p>
+</blockquote>
+<h2 id="Solving-the-challenge"><a href="#Solving-the-challenge" class="headerlink" title="Solving the challenge"></a>Solving the challenge</h2><p>Personally, I find the final solution for such challenge quite elegant using the pipe operator <code>|&gt;</code> and the pattern matching Elixir give to us.</p>
+<p>One interesting point to note as well is that the <code>+</code> operator in Elixir is actually a function so I could use it in the pipeline as <code>Kernel.+()</code>. Really cool!</p>
+<p>The final solution:</p>
+<blockquote>
+<p><strong>Update:</strong> after <a href="https://news.ycombinator.com/item?id=15096942" target="_blank" rel="external">these</a> great suggestions, I refactored the code for the current version you’ll se below. You can see the old version <a href="https://github.com/ericdouglas/labs/commit/670a3fc7ddea5f5bf5dab9ce8a5c717be28f15bf" target="_blank" rel="external">here</a>.</p>
+<p>In the current version I removed <code>Kernel.+()</code> and used string interpolation <code>#{}</code> instead.</p>
+</blockquote>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TimeConversion</span></span> <span class="keyword">do</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(input) <span class="keyword">do</span></div><div class="line">    input |&gt; converter</div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">converter</span></span>(input) <span class="keyword">do</span></div><div class="line">    [hours, minutes, seconds] = String.split(input, <span class="string">":"</span>)</div><div class="line">    period                    = String.slice(seconds, <span class="number">2</span>..<span class="number">3</span>)</div><div class="line">    seconds                   = String.slice(seconds, <span class="number">0</span>..<span class="number">1</span>)</div><div class="line">    formated_hour             = format_hour(period, hours)</div><div class="line"></div><div class="line">    <span class="string">"<span class="subst">#&#123;formated_hour&#125;</span>:<span class="subst">#&#123;minutes&#125;</span>:<span class="subst">#&#123;seconds&#125;</span>"</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">defp</span> <span class="title">format_hour</span></span>(<span class="string">"AM"</span>, <span class="string">"12"</span>), <span class="symbol">do:</span> <span class="string">"00"</span></div><div class="line">  <span class="function"><span class="keyword">defp</span> <span class="title">format_hour</span></span>(<span class="string">"AM"</span>, hours), <span class="symbol">do:</span> hours</div><div class="line">  <span class="function"><span class="keyword">defp</span> <span class="title">format_hour</span></span>(<span class="string">"PM"</span>, <span class="string">"12"</span>), <span class="symbol">do:</span> <span class="string">"12"</span></div><div class="line">  <span class="function"><span class="keyword">defp</span> <span class="title">format_hour</span></span>(<span class="string">"PM"</span>, hours), <span class="symbol">do:</span> <span class="string">"<span class="subst">#&#123;String.to_integer(hours) + <span class="number">12</span>&#125;</span>"</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">input = IO.gets(<span class="string">""</span>) |&gt; String.trim</div><div class="line">TimeConversion.main(input) |&gt; IO.puts</div></pre></td></tr></table></figure>
+<h2 id="Why-the-mix-tool"><a href="#Why-the-mix-tool" class="headerlink" title="Why the mix tool?"></a>Why the <code>mix</code> tool?</h2><p>Following the philosophy to use a real environment while practicing a new language, the method showed now is more closely to what you will see in the wild :)</p>
+<p><code>mix</code> is a tool to manage your Elixir applications. It can handle project’s dependencies, run your tests, compile your code, and so on.</p>
+<p>The great benefit we will have using <code>mix</code> is that it compile our code before run the tests so we don’t need to bother with such task everytime we want to test our algorithm. Quite handy! The dowside is you need to comment the side-effect part of the code in order to achieve such benefit, not a big deal. You can uncomment it when you paste your code on HackerRank.</p>
+<h2 id="Using-mix"><a href="#Using-mix" class="headerlink" title="Using mix"></a>Using <code>mix</code></h2><p>To create a new project, type:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix <span class="keyword">new</span> project_name</div></pre></td></tr></table></figure>
+<p>In our case, let’s use <code>mix new elixir_algorithms</code>.</p>
+<p>Now you have a basic structure to work upon. We will change where mix run the tests so our test files can stay alongside the actual code they are testing.</p>
+<h2 id="Configuring-your-test-setup-again"><a href="#Configuring-your-test-setup-again" class="headerlink" title="Configuring your test setup - again :)"></a>Configuring your test setup - again :)</h2><p><strong>1)</strong> Go to the file <code>mix.exs</code> and add <code>test_paths: [&quot;lib&quot;]</code> in the <code>project</code> function.</p>
+<p>Example:<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">project</span></span> <span class="keyword">do</span></div><div class="line">  [</div><div class="line">    <span class="symbol">app:</span> <span class="symbol">:kv</span>,</div><div class="line">    <span class="symbol">version:</span> <span class="string">"0.1.0"</span>,</div><div class="line">    <span class="symbol">elixir:</span> <span class="string">"~&gt; 1.5"</span>,</div><div class="line">    <span class="symbol">start_permanent:</span> Mix.env == <span class="symbol">:prod</span>,</div><div class="line">    <span class="symbol">test_paths:</span> [<span class="string">"lib"</span>],</div><div class="line">    <span class="symbol">deps:</span> deps()</div><div class="line">  ]</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p><strong>2)</strong> Put the <code>test_helper.exs</code> file inside the <code>lib</code> folder.</p>
+<p><strong>3)</strong> Now you can create all your test files inside the <code>lib</code> folder.</p>
+<p>To verify everything is working, run <code>mix test</code>.</p>
+<p>Check our project with the new structure <strong><a href="https://github.com/ericdouglas/labs/tree/master/hackerrank/algorithms/elixir_algorithms/lib" target="_blank" rel="external">here</a></strong>.</p>
+<blockquote>
+<p>That’s it. <strong>Happy coding!</strong></p>
+</blockquote>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-algorithms"><span class="toc-number">1.</span> <span class="toc-text">Why algorithms?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Write-tests"><span class="toc-number">2.</span> <span class="toc-text">Write tests</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backup-your-algorithms-somewhere"><span class="toc-number">3.</span> <span class="toc-text">Backup your algorithms somewhere</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Blocks-of-theory-and-practice"><span class="toc-number">4.</span> <span class="toc-text">Blocks of theory and practice</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Let’s-code"><span class="toc-number">5.</span> <span class="toc-text">Let’s code!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test-Setup"><span class="toc-number">6.</span> <span class="toc-text">Test Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O-Strategy"><span class="toc-number">7.</span> <span class="toc-text">I/O Strategy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solving-the-challenge"><span class="toc-number">8.</span> <span class="toc-text">Solving the challenge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-the-mix-tool"><span class="toc-number">9.</span> <span class="toc-text">Why the mix tool?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Using-mix"><span class="toc-number">10.</span> <span class="toc-text">Using mix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuring-your-test-setup-again"><span class="toc-number">11.</span> <span class="toc-text">Configuring your test setup - again :)</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&text=Practicing Elixir - or any - programming language"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&is_video=false&description=Practicing Elixir - or any - programming language"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Practicing Elixir - or any - programming language&body=Check out this article: http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&title=Practicing Elixir - or any - programming language"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/&name=Practicing Elixir - or any - programming language&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2017 Eric Douglas
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/ericdouglas">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-48165601-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'ericdouglas';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
