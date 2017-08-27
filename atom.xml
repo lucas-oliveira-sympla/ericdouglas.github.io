@@ -328,11 +328,11 @@
     </summary>
     
     
-      <category term="linux" scheme="http://ericdouglas.github.io/tags/linux/"/>
-    
       <category term="jest" scheme="http://ericdouglas.github.io/tags/jest/"/>
     
       <category term="watchman" scheme="http://ericdouglas.github.io/tags/watchman/"/>
+    
+      <category term="linux" scheme="http://ericdouglas.github.io/tags/linux/"/>
     
   </entry>
   
