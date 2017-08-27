@@ -224,7 +224,7 @@
 <p><code>mix</code> is a tool to manage your Elixir applications. It can handle project’s dependencies, run your tests, compile your code, and so on.</p>
 <p>The great benefit we will have using <code>mix</code> is that it compile our code before run the tests so we don’t need to bother with such task everytime we want to test our algorithm. Quite handy! The dowside is you need to comment the side-effect part of the code in order to achieve such benefit, not a big deal. You can uncomment it when you paste your code on HackerRank.</p>
 <h2 id="Using-mix"><a href="#Using-mix" class="headerlink" title="Using mix"></a>Using <code>mix</code></h2><p>To create a new project, type:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix <span class="keyword">new</span> project_name</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix <span class="keyword">new</span> project_name</div></pre></td></tr></table></figure>
 <p>In our case, let’s use <code>mix new elixir_algorithms</code>.</p>
 <p>Now you have a basic structure to work upon. We will change where mix run the tests so our test files can stay alongside the actual code they are testing.</p>
 <h2 id="Configuring-your-test-setup-again"><a href="#Configuring-your-test-setup-again" class="headerlink" title="Configuring your test setup - again :)"></a>Configuring your test setup - again :)</h2><p><strong>1)</strong> Go to the file <code>mix.exs</code> and add <code>test_paths: [&quot;lib&quot;]</code> in the <code>project</code> function.</p>
