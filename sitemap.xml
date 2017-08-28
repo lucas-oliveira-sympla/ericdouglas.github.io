@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ericdouglas.github.io/2017/08/27/elixir-built-in-documentation-and-testing-tools/</loc>
+    
+    <lastmod>2017-08-28T11:09:05.231Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ericdouglas.github.io/tags/index.html</loc>
     
     <lastmod>2017-08-27T10:55:50.591Z</lastmod>
@@ -9,21 +16,7 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2016/08/21/Installing-Compass-on-Linux-Mint/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2015/08/16/Getting-Started-with-Ember-2-0/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2016/12/20/fix-jest-watchman-on-linux/</loc>
+    <loc>http://ericdouglas.github.io/2017/08/15/basic-cli-postgres-management/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -37,14 +30,14 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2017/08/15/basic-cli-postgres-management/</loc>
+    <loc>http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2016/08/21/how-to-create-a-blog-with-hexo/</loc>
+    <loc>http://ericdouglas.github.io/2016/12/20/fix-jest-watchman-on-linux/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -58,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2015/09/17/node-projects/</loc>
+    <loc>http://ericdouglas.github.io/2015/08/16/Getting-Started-with-Ember-2-0/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -72,6 +65,13 @@
   </url>
   
   <url>
+    <loc>http://ericdouglas.github.io/2015/09/17/node-projects/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ericdouglas.github.io/2016/12/26/react-hacker-news-client/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
@@ -79,7 +79,14 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2016/12/04/functional-programming-study-plan/</loc>
+    <loc>http://ericdouglas.github.io/2016/08/21/how-to-create-a-blog-with-hexo/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2016/08/21/Installing-Compass-on-Linux-Mint/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -93,7 +100,7 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/</loc>
+    <loc>http://ericdouglas.github.io/2016/12/04/functional-programming-study-plan/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     

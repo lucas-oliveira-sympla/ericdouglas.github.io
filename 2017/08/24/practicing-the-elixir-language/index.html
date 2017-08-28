@@ -71,6 +71,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2017/08/27/elixir-built-in-documentation-and-testing-tools/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="/2017/08/15/basic-cli-postgres-management/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
@@ -184,7 +186,7 @@
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ExUnit.start()</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">defmodule</span> <span class="title">TimeConversionTest</span></span> <span class="keyword">do</span></div><div class="line">  <span class="keyword">use</span> ExUnit.Case</div><div class="line"></div><div class="line">  test <span class="string">"the truth"</span> <span class="keyword">do</span></div><div class="line">    assert <span class="number">1</span> == <span class="number">1</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>It’s done! :)</p>
 <p>Go to your terminal and type <code>elixir time_conversion_test.exs</code>. You will se the following:</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; elixir time_conversion_test.exs</div><div class="line"></div><div class="line">.</div><div class="line"></div><div class="line">Finished <span class="keyword">in</span> <span class="number">0.08</span> seconds (<span class="number">0.07</span>s <span class="keyword">on</span> load, <span class="number">0.01</span>s <span class="keyword">on</span> tests)</div><div class="line"><span class="number">1</span> test, <span class="number">0</span> failures</div><div class="line"></div><div class="line">Randomized <span class="keyword">with</span> seed <span class="number">501932</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; elixir time_conversion_test.exs</div><div class="line"></div><div class="line">.</div><div class="line"></div><div class="line">Finished in 0.08 seconds (0.07s on load, 0.01s on tests)</div><div class="line">1 test, 0 failures</div><div class="line"></div><div class="line">Randomized with seed 501932</div></pre></td></tr></table></figure>
 <p>Now you verified the test tool is working, let’s write all tests we need for this algorithm.</p>
 <p>You can already import the module we will actually test, so add <code>import TimeConversion</code> above the <code>test</code> case.</p>
 <blockquote>
@@ -224,7 +226,7 @@
 <p><code>mix</code> is a tool to manage your Elixir applications. It can handle project’s dependencies, run your tests, compile your code, and so on.</p>
 <p>The great benefit we will have using <code>mix</code> is that it compile our code before run the tests so we don’t need to bother with such task everytime we want to test our algorithm. Quite handy! The dowside is you need to comment the side-effect part of the code in order to achieve such benefit, not a big deal. You can uncomment it when you paste your code on HackerRank.</p>
 <h2 id="Using-mix"><a href="#Using-mix" class="headerlink" title="Using mix"></a>Using <code>mix</code></h2><p>To create a new project, type:</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix <span class="keyword">new</span> project_name</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mix new project_name</div></pre></td></tr></table></figure>
 <p>In our case, let’s use <code>mix new elixir_algorithms</code>.</p>
 <p>Now you have a basic structure to work upon. We will change where mix run the tests so our test files can stay alongside the actual code they are testing.</p>
 <h2 id="Configuring-your-test-setup-again"><a href="#Configuring-your-test-setup-again" class="headerlink" title="Configuring your test setup - again :)"></a>Configuring your test setup - again :)</h2><p><strong>1)</strong> Go to the file <code>mix.exs</code> and add <code>test_paths: [&quot;lib&quot;]</code> in the <code>project</code> function.</p>

@@ -239,7 +239,7 @@
 <li>Install semantic-release <code>npm i -g semantic-release-cli</code></li>
 <li>Setup semantic-release <code>semantic-release-cli setup</code></li>
 <li>Setup your CI configuration file to run the tests before run semantic-release.<ul>
-<li>Ex: <code>.travis.yml</code><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># some stuff here</span></div><div class="line"></div><div class="line">before_script:</div><div class="line">  - npm prune</div><div class="line">script:</div><div class="line">  - npm <span class="keyword">run</span><span class="bash"> <span class="built_in">test</span></span></div><div class="line"><span class="bash">after_success:</span></div><div class="line"><span class="bash">  - npm run semantic-release</span></div></pre></td></tr></table></figure>
+<li>Ex: <code>.travis.yml</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># some stuff here</div><div class="line"></div><div class="line">before_script:</div><div class="line">  - npm prune</div><div class="line">script:</div><div class="line">  - npm run test</div><div class="line">after_success:</div><div class="line">  - npm run semantic-release</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -352,7 +352,7 @@
 <ul>
 <li>Go to <a href="http://shields.io/" target="_blank" rel="external">shields.io</a> </li>
 <li>Choose your badges! :)</li>
-<li>Markdown structure to add badges: <figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="string">![image description</span>](<span class="link">shields.io link</span>)](<span class="link">link the badge to the respective place</span>)</div></pre></td></tr></table></figure>
+<li>Markdown structure to add badges: <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[![image description](shields.io link)](link the badge to the respective place)</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -383,7 +383,7 @@
 </li>
 <li><p><strong>Limit Built Branches on Travis</strong>:</p>
 <ul>
-<li>Add the following code in your <code>.travis.yml</code>:<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">branches:</span></div><div class="line"><span class="symbol">  only:</span></div><div class="line">    - master</div></pre></td></tr></table></figure>
+<li>Add the following code in your <code>.travis.yml</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">branches:</div><div class="line">  only:</div><div class="line">    - master</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
