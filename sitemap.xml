@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ericdouglas.github.io/2017/09/03/writing-a-csv-todo-app-with-elixir-part-1-3/</loc>
+    
+    <lastmod>2017-09-05T17:19:26.622Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/</loc>
+    
+    <lastmod>2017-09-03T16:03:24.176Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ericdouglas.github.io/2017/08/27/elixir-built-in-documentation-and-testing-tools/</loc>
     
     <lastmod>2017-08-28T11:25:03.449Z</lastmod>
@@ -16,21 +30,7 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ericdouglas.github.io/2016/12/20/fix-jest-watchman-on-linux/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -44,13 +44,6 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2017/06/29/installing-elixir-and-erlang/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ericdouglas.github.io/2017/08/15/basic-cli-postgres-management/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
@@ -58,7 +51,21 @@
   </url>
   
   <url>
-    <loc>http://ericdouglas.github.io/2015/08/16/Getting-Started-with-Ember-2-0/</loc>
+    <loc>http://ericdouglas.github.io/2017/06/29/installing-elixir-and-erlang/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2016/08/21/Installing-Compass-on-Linux-Mint/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2016/08/21/how-to-create-a-blog-with-hexo/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
@@ -79,28 +86,28 @@
   </url>
   
   <url>
+    <loc>http://ericdouglas.github.io/2016/04/01/Git-Useful-Tips/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2015/08/16/Getting-Started-with-Ember-2-0/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ericdouglas.github.io/2015/09/27/checklist-for-your-new-open-source-javascript-project/</loc>
+    
+    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ericdouglas.github.io/2016/12/04/functional-programming-study-plan/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2016/08/21/how-to-create-a-blog-with-hexo/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2017/08/24/practicing-the-elixir-language/</loc>
-    
-    <lastmod>2017-08-27T10:55:50.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ericdouglas.github.io/2016/08/21/Installing-Compass-on-Linux-Mint/</loc>
     
     <lastmod>2017-08-27T10:55:50.587Z</lastmod>
     
